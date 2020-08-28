@@ -12,7 +12,7 @@ env:
 before_install:
   # fetch toolchian gcc4.9
   - cd ~/build/lyq1996/
-  - if [ "$compiler" = "clang" ]; then echo $compiler;wget -c https://github.com/kdrag0n/proton-clang/archive/$clang_release.zip;unzip $clang_release.zip;mv proton-clang-$clang-release clang;export PATH=$PATH:$PWD/clang/bin/;export CROSS_COMPILE=aarch64-linux-gnu-;export CROSS_COMPILE_ARM32=arm-linux-gnueabi-;export ARCH=arm64;export SUBARCH=arm64;else echo $compiler; wget -c https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz;mkdir aarch64-linux-android-4.9; tar -zxf 961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz -C aarch64-linux-android-4.9; export PATH=$PATH:$PWD/aarch64-linux-android-4.9/bin/; export CROSS_COMPILE=aarch64-linux-android-; export ARCH=arm64; export SUBARCH=arm64; fi
+  - if [ "$compiler" = "clang" ]; then echo $compiler;wget -c https://github.com/kdrag0n/proton-clang/archive/$clang_release.zip;unzip $clang_release.zip;mv proton-clang-$clang_release clang;export PATH=$PATH:$PWD/clang/bin/;export CROSS_COMPILE=aarch64-linux-gnu-;export CROSS_COMPILE_ARM32=arm-linux-gnueabi-;export ARCH=arm64;export SUBARCH=arm64;else echo $compiler; wget -c https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz;mkdir aarch64-linux-android-4.9; tar -zxf 961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz -C aarch64-linux-android-4.9; export PATH=$PATH:$PWD/aarch64-linux-android-4.9/bin/; export CROSS_COMPILE=aarch64-linux-android-; export ARCH=arm64; export SUBARCH=arm64; fi
 
 stages:
   - name: build kernel
